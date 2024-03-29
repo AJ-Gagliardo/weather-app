@@ -15,9 +15,13 @@ let location = 'london'
 
 console.log(apiUrl + apiKey + apiUrl2 + location)
 
-// async function checkWeather(){
-//     const response = await fetch(apiUrl + apiKey + apiUrl2 + location);
-//     var data = await response.json();
+async function checkWeather(){
+    const response = await fetch(apiUrl + apiKey + apiUrl2 + location);
+    var data = await response.json();
 
-//     console.log(data);
-// }
+    console.log(data);
+console.log(data.location.name)
+    document.querySelector('.city').textContent = data.location.name;
+}
+
+checkWeather();
