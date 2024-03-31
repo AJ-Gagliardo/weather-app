@@ -1,11 +1,8 @@
 import './css/styles.css';
-// first i have to get the api of the weather
+import humidityImg from './assets/img/humidity.png';
+import windImg from './assets/img/wind.png';
 
 
-
-// fetch(`https://api.weatherapi.com/v1/current.json?key=2bb56963b22d402aaab180509242803&q=london`)
-// .then(response=>response.json())
-// .then(data=>console.log(data));
 
 
 const apiKey= `2bb56963b22d402aaab180509242803`;
@@ -16,12 +13,31 @@ let location = 'london'
 console.log(apiUrl + apiKey + apiUrl2 + location)
 
 async function checkWeather(){
+
+
+
     const response = await fetch(apiUrl + apiKey + apiUrl2 + location);
     var data = await response.json();
 
     console.log(data);
 console.log(data.location.name)
+
     document.querySelector('.city').textContent = data.location.name;
+    document.querySelector('.temp').textContent = `${data.current.temp_c}° C`;
+    document.querySelector('.weather-icon').src = data.current.condition.icon;
+    document.querySelector('.condition').textContent = data.current.condition.text;
+
+    console.log(data.current.humidity);
+    document.querySelector('.humidity').textContent =  `${data.current.humidity} %`;
+    document.querySelector('.wind').textContent = `${data.current.wind_kph} km/h`;
+
+    document.querySelector('.humidityImg').src = humidityImg;
+    document.querySelector('.windImg').src = windImg;
+
+
 }
 
 checkWeather();
+
+
+

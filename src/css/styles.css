@@ -54,8 +54,8 @@
 
 
 .weather-icon{
-    width: 170px;
-    margin-top:30px;
+    width: 100px;
+    margin-top:15px;
 }
 
 .weather h1{
@@ -86,4 +86,8 @@
 .col img{
     width: 40px;
     margin-right: 10px;
+}
+
+.smallImg {
+    width: 40px;
 }
