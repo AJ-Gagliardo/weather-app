@@ -8,13 +8,13 @@ import windImg from './assets/img/wind.png';
 const apiKey= `2bb56963b22d402aaab180509242803`;
 const apiUrl=`https://api.weatherapi.com/v1/current.json?key=`;
 const apiUrl2 = `&q=`
-let location = 'london'
+// let location = 'london'
 
-console.log(apiUrl + apiKey + apiUrl2 + location)
+// console.log(apiUrl + apiKey + apiUrl2 + location)
 
-async function checkWeather(){
+async function checkWeather(city){
 
-
+let location = city;
 
     const response = await fetch(apiUrl + apiKey + apiUrl2 + location);
     var data = await response.json();
@@ -37,7 +37,11 @@ console.log(data.location.name)
 
 }
 
-checkWeather();
+checkWeather('vancouver');
+
+
+const citySearch = document.getElementById('citySearch');
+console.log(citySearch);
 
 
 
