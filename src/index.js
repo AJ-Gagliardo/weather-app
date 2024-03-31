@@ -43,5 +43,15 @@ checkWeather('vancouver');
 const citySearch = document.getElementById('citySearch');
 console.log(citySearch);
 
+const searchBtn = document.getElementById('searchButton');
+console.log(searchBtn);
+
+
+searchBtn.addEventListener('click', ()=>{
+    let cityToSearch = citySearch.value ;
+    console.log(cityToSearch);
+    checkWeather(cityToSearch);
+})
+
 
 
